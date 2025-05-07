@@ -26,10 +26,11 @@ body {
     align-items: center;
     gap: 10px;
     text-decoration: none;
+    margin-left: 10%;
   }
   
   .logo img {
-    height: 50px;
+    height: 65px;
   }
   .products-row {
     background-color: #b6e3ff;
