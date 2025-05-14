@@ -1,0 +1,229 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5faff;
+    color: #222;
+  }
+  
+  header {
+    background-color: #e0efff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #b8d8f8;
+  }
+  
+ .logo {
+  font-family: 'Baloo 2', cursive;
+  font-size: 32px;
+  font-weight: 600;
+  color: #0077c8;
+  text-shadow: 1px 1px 0px #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-left: 0;
+}
+  
+  .logo img {
+    height: 45px;
+  }
+  .products-row {
+    background-color: #b6e3ff;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #89c6ea;
+    overflow-x: auto;
+    white-space: nowrap;
+
+
+  }
+  
+  .products-row a {
+    color: #004080;
+    text-decoration: none;
+    font-weight: normal;
+    transition: color 0.3s;
+  }
+  
+  .products-row a:hover {
+    color: #0077c8;
+  }
+  
+  .user-profile input[type="text"] {
+    padding: 6px 10px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 30px 20px;
+  }
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #d0eaff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: #004080;
+    font-weight: bold;
+  }
+  
+  .user-profile img {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #004080;
+  }
+  
+  .marquee {
+    background-color: #f5faff;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+  
+  .marquee p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  .topnav, .subnav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 20px;
+    background-color: #cce8ff;
+    border-bottom: 1px solid #a0c4e4;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+  
+  .topnav {
+    background-color: #d5ecff;
+    font-size: 14px;
+  }
+  
+  .topnav .label {
+    color: #555;
+    font-weight: normal;
+  }
+  
+  .topnav a,
+  .subnav a {
+    color: #004080;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .topnav a:hover,
+  .subnav a:hover {
+    color: #0077c8;
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+  
+  .news-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .news-card {
+    display: flex;
+    background-color: #e0f4ff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 620px;
+    flex: 1 1 45%;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  }
+  
+  .news-card img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .news-text {
+    padding: 15px;
+    font-size: 16px;
+    color: #222;
+  }
+  
+  .news-text strong {
+    font-weight: bold;
+  }
+
+  .site-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #0077c8;
+}
+
+/*POPUP*/
+.btn-login {
+  background: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay.active {
+  display: flex;
+}
+/*POPUP*/

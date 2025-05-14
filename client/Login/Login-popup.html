@@ -1,0 +1,73 @@
+<div class="popup"
+    style="background:#fff; padding:2rem; border-radius:20px; position:relative; width:350px; box-shadow:0 0 20px rgba(0,0,0,0.2);">
+    <button class="close-btn"
+        style="position:absolute; top:10px; right:15px; font-size:20px; border:none; background:none; cursor:pointer;">×</button>
+
+    <div class="tabs" style="display:flex; margin-bottom:1.5rem;">
+        <div class="tab active" onclick="switchTab('login')"
+            style="flex:1; text-align:center; padding:1rem; margin-right: 1rem; cursor:pointer; border-radius:10px; background:#b8d8f8; font-weight:600;">
+            Логін
+        </div>
+        <div class="tab" onclick="switchTab('register')"
+            style="flex:1; text-align:center; padding:1rem; cursor:pointer; border-radius:10px; background:#b8d8f8; font-weight:600;">
+            Реєстрація
+        </div>
+    </div>
+
+    <form id="login" class="form active" style="display:flex; flex-direction:column;">
+        <input type="text" placeholder="Логін" required style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
+        <input type="password" placeholder="Пароль" required
+            style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
+        <button type="submit"
+            style="padding:0.8rem; background:#b6e3ff; border:none; border-radius:10px; font-weight:bold;">Увійти</button>
+    </form>
+
+    <form id="register" class="form" style="display:none; flex-direction:column;">
+        <input type="text" placeholder="Логін" required style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
+        <input type="password" placeholder="Пароль" required
+            style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
+        <input type="email" placeholder="Email" required
+            style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
+        <input type="tel" placeholder="Телефон" required
+            style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
+        <button type="submit"
+            style="padding:0.8rem; background:#b6e3ff; border:none; border-radius:10px; font-weight:bold;">Зареєструватися</button>
+    </form>
+
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.form').forEach(f => f.style.display = 'none');
+
+            document.querySelector(`.tab[onclick*="${tab}"]`).classList.add('active');
+            document.getElementById(tab).style.display = 'flex';
+        }
+        const form = document.getElementById('register');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = {
+                username: formData.get('text'),
+                email: formData.get('email'),
+                password: formData.get('password'),
+                tel: formData.get("tel")
+            };
+
+            const response = await fetch('http://localhost:4252/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            if(response.status===201){
+                const overlay = document.getElementById('popupOverlay');
+                overlay.classList.remove('active');
+                overlay.innerHTML = '';
+
+                alert(result.message)
+            }
+        });
+    </script>
+</div>
