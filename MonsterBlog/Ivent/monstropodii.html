@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Монстроподії — Корпорація Монстрів</title>
+  <link rel="stylesheet" href="monstropodii.css" />
+  <link rel="stylesheet" href="calendar.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Inter:wght@700&display=swap" rel="stylesheet">
+  <script defer src="calendar.js"></script>
+  <script defer src="monstropodii.js"></script>
+</head>
+<body>
+
+  <header>
+    <a href="../Monster.html" class="logo">
+      <img src="../pictures/лого.png" alt="Корпорація монстрів" />
+      <span class="site-title">Корпорація монстрів</span>
+    </a>
+    <div class="user-profile">
+      <input type="text" placeholder="🔍 Пошук..." />
+      <img src="../pictures/photo-user.png" alt="User" />
+    </div>
+  </header>
+
+  <div class="marquee">
+    <p>Тут може бути ваша реклама. Тут може бути ваша реклама. Тут може бути ваша реклама...</p>
+  </div>
+
+  <nav class="topnav">
+     <a href="../Monstropedia/monstropedia.html">Монстропедія</a>
+    <a href="../Job/JobApplication.html">Працевлаштування</a>
+    <a href="#">Товари</a>
+    <a href="monstropodii.html">Події</a>
+    <a href="../Contact/contact.html">Зв’язок</a>
+  </nav>
+
+  <div class="page-content">
+    <h1>Монстроподії</h1>
+    <p>
+      У цьому календарі зібрані найсвіжіші події «Корпорації Монстрів» — від пранків до балів, від перегляду фільмів до алхімічних експериментів.<br><br>
+      Кожен монстр, незалежно від кількості очей, лап чи чарівних здібностей, знайде собі розвагу до душі (або хоча б до щупальця)! Не прогав найстрашенно веселі моменти! 🌙👁✨
+    </p>
+
+    <div class="calendar-section">
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <button id="prev">‹</button>
+          <h2 id="monthYear"></h2>
+          <button id="next">›</button>
+        </div>
+        <table class="calendar">
+          <thead>
+            <tr>
+              <th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Нд</th>
+            </tr>
+          </thead>
+          <tbody id="calendar-body"></tbody>
+        </table>
+      </div>
+
+      <div class="event-list">
+        <h3>Найближчі події:</h3>
+        <ul>
+          <li><span class="date">13 травня</span> — День Драконячого Дихання</li>
+          <li><span class="date">18 травня</span> — МонстраШар – Весняний Бал Потаємних Істот</li>
+          <li><span class="date">23 травня</span> — День Забутих Монстрячих Винаходів</li>
+          <li><span class="date">28 травня</span> — Театр Тіней і Страхів</li>
+          <li><span class="date">30 травня</span> — Вальпургієва ніч: Велике Місячне Зібрання</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

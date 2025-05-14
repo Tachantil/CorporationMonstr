@@ -1,9 +1,7 @@
-/* styles.css */
-
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5faff;
+    font-family: 'Baloo 2', cursive;
+    background-color: #e8f6ff;
     color: #222;
   }
   
@@ -16,7 +14,7 @@ body {
     border-bottom: 1px solid #b8d8f8;
   }
   
- .logo {
+.logo {
   font-family: 'Baloo 2', cursive;
   font-size: 32px;
   font-weight: 600;
@@ -28,34 +26,9 @@ body {
   text-decoration: none;
   margin-left: 0;
 }
-  
-  .logo img {
+
+   .logo img {
     height: 45px;
-  }
-  .products-row {
-    background-color: #b6e3ff;
-    padding: 10px 20px;
-    font-weight: bold;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #89c6ea;
-    overflow-x: auto;
-    white-space: nowrap;
-
-
-  }
-  
-  .products-row a {
-    color: #004080;
-    text-decoration: none;
-    font-weight: normal;
-    transition: color 0.3s;
-  }
-  
-  .products-row a:hover {
-    color: #0077c8;
   }
   
   .user-profile input[type="text"] {
@@ -64,14 +37,29 @@ body {
     border: 1px solid #ccc;
     outline: none;
   }
-  
-  .content-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 30px 20px;
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  .user-profile {
+  
+  .search-box input {
+    padding: 6px 10px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  
+  .search-box img {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #004080;
+  }
+  
+ .user-profile {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -107,7 +95,7 @@ body {
     0% { transform: translateX(0%); }
     100% { transform: translateX(-100%); }
   }
-  
+   
   .topnav, .subnav {
     display: flex;
     align-items: center;
@@ -141,61 +129,35 @@ body {
   .subnav a:hover {
     color: #0077c8;
   }
-  
-  .content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 30px 20px;
-  }
-  
-  .news-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  .news-card {
-    display: flex;
-    background-color: #e0f4ff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 620px;
-    flex: 1 1 45%;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-  }
-  
-  .news-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-  }
-  
-  .news-card img {
-    width: 200px;
-    height: auto;
-    object-fit: cover;
-  }
-  
-  .news-text {
-    padding: 15px;
-    font-size: 16px;
-    color: #222;
-  }
-  
-  .news-text strong {
-    font-weight: bold;
-  }
-
-  .site-title {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 28px;
+.pedia-content {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+.pedia-content h1 {
+  font-family: 'Baloo 2', cursive;
   color: #0077c8;
+}
+.pedia-content .intro {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.pedia-entry {
+  text-align: left;
+  background-color: #e0f4ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.pedia-entry h2 {
+  margin-top: 0;
+  color: #004080;
+}
+.pedia-note {
+  margin-top: 30px;
+  background-color: #b6e3ff;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
 }
