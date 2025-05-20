@@ -15,20 +15,22 @@
     </div>
 
     <form id="login" class="form active" style="display:flex; flex-direction:column;">
-        <input type="text" placeholder="Логін" required style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
-        <input type="password" placeholder="Пароль" required
+        <input type="text" name="username" placeholder="Логін" required
+            style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
+        <input type="password" name="password" placeholder="Пароль" required
             style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
         <button type="submit"
             style="padding:0.8rem; background:#b6e3ff; border:none; border-radius:10px; font-weight:bold;">Увійти</button>
     </form>
 
     <form id="register" class="form" style="display:none; flex-direction:column;">
-        <input type="text" placeholder="Логін" required style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
-        <input type="password" placeholder="Пароль" required
+        <input type="text" name="username" placeholder="Логін" required
             style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
-        <input type="email" placeholder="Email" required
+        <input type="password" name="password" placeholder="Пароль" required
             style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
-        <input type="tel" placeholder="Телефон" required
+        <input type="email" name="email" placeholder="Email" required
+            style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
+        <input type="tel" name="tel" placeholder="Телефон" required
             style="margin-bottom:1rem; padding:0.8rem; border-radius:10px;">
         <button type="submit"
             style="padding:0.8rem; background:#b6e3ff; border:none; border-radius:10px; font-weight:bold;">Зареєструватися</button>
@@ -42,31 +44,83 @@
             document.querySelector(`.tab[onclick*="${tab}"]`).classList.add('active');
             document.getElementById(tab).style.display = 'flex';
         }
-        const form = document.getElementById('register');
-        form.addEventListener('submit', async (e) => {
+
+        const registerForm = document.getElementById('register');
+        registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const formData = new FormData(form);
+            const formData = new FormData(registerForm);
+            console.log("Form data:", Object.fromEntries(formData));
+
             const data = {
-                username: formData.get('text'),
+                username: formData.get('username'),
                 email: formData.get('email'),
                 password: formData.get('password'),
-                tel: formData.get("tel")
+                tel: formData.get('tel')
             };
 
-            const response = await fetch('http://localhost:4252/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
+            console.log("Data being sent:", data);
 
-            const result = await response.json();
-            if(response.status===201){
-                const overlay = document.getElementById('popupOverlay');
-                overlay.classList.remove('active');
-                overlay.innerHTML = '';
+            try {
+                const response = await fetch('http://localhost:4252/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
 
-                alert(result.message)
+                const result = await response.json();
+                if (response.status === 201) {
+                    const overlay = document.getElementById('popupOverlay');
+                    if (overlay) {
+                        overlay.classList.remove('active');
+                        overlay.innerHTML = '';
+                    }
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error("Error during registration:", error);
+                alert("Помилка під час реєстрації");
+            }
+        });
+
+        //Логін форма логіка
+        const loginForm = document.getElementById('login');
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(loginForm);
+            console.log("Login form data:", Object.fromEntries(formData));
+
+            const loginData = {
+                username: formData.get('username'),
+                password: formData.get('password')
+            };
+
+            console.log("Login data being sent:", loginData);
+
+            try {
+                const response = await fetch('http://localhost:4252/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(loginData)
+                });
+
+                const result = await response.json();
+
+                if (response.status === 200) {
+                    const overlay = document.getElementById('popupOverlay');
+                    if (overlay) {
+                        overlay.classList.remove('active');
+                        overlay.innerHTML = '';
+                    }
+                    alert(result.message);
+                    localStorage.setItem('user', JSON.stringify(result.user));
+                } else {
+                    alert(result.message || "Помилка входу");
+                }
+            } catch (error) {
+                console.error("Error during login:", error);
+                alert("Помилка під час входу");
             }
         });
     </script>
