@@ -4,30 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Анкета — Корпорація Монстрів</title>
+  <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="anketa.css">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <script defer src="anketa.js"></script>
 </head>
 <body>
-   <header>
-   <a href="../Monster.html" class="logo">
+  <header>
+    <a href="../index.html" class="logo">
   <img src="../pictures/лого.png" alt="Корпорація монстрів" />
   <span class="site-title">Корпорація монстрів</span>
     </a>
-    <div class="user-profile">
-      <input type="text" placeholder="🔍 Пошук..." />
-      <img src="../pictures/photo-user.png" alt="User" />
+
+<div class="user-profile">
+  <input type="text" placeholder="🔍 Пошук..." />
+  <img src="../pictures/photo-user.png" alt="User" id="userAvatar" />
+  <div class="dropdown-menu" id="userDropdown">
+    <button onclick="location.href='../profile.html'">🧑‍💼 Профіль</button>
+    <button onclick="alert('Вихід із системи')">🚪 Вийти</button>
+    <hr />
+    <button onclick="openPopup()">🔐 Увійти / Зареєструватись</button>
+  </div>
+</div>
+
+<div id="popupOverlay" class="overlay"></div>
     </div>
   </header>
-
   <div class="marquee">
     <p>Тут може бути ваша реклама. Тут може бути ваша реклама. Тут може бути ваша реклама...</p>
   </div>
 
+  <div class="products-row">
+    <span>Товари місяця:</span>
+    <a href="#">Слизозбірник PRO+</a>
+    <a href="#">Антишумові капці «Тихі Кігті»</a>
+    <a href="#">МонстроМікс: Вітаміни для зросту рогів</a>
+    <a href="#">→</a>
+  </div>
+
   <nav class="topnav">
     <a href="../Monstropedia/monstropedia.html">Монстропедія</a>
-    <a href="JobApplication.html">Працевлаштування</a>
-    <a href="#">Товари</a>
+    <a href="../Job/JobApplication.html">Працевлаштування</a>
+    <a href="../Products/products.html">Товари</a>
     <a href="../Ivent/monstropodii.html">Події</a>
     <a href="../Contact/contact.html">Зв’язок</a>
   </nav>
@@ -102,5 +120,14 @@
       </form>
     </section>
   </main>
+  <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const user = JSON.parse(localStorage.getItem("user"))
+            const avatar = document.getElementById('userAvatar')
+            if (user?.avatar) {
+                avatar.src = user.avatar;
+            }
+        })
+    </script>
 </body>
 </html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Профіль — Корпорація Монстрів</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="profile.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Inter:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      <img src="pictures/лого.png" alt="Корпорація монстрів" />
+      <span class="site-title">Корпорація монстрів</span>
+    </a>
+    <div class="user-profile">
+      <input type="text" placeholder="🔍 Пошук..." />
+      <img src="pictures/photo-user.png" alt="User" id="userAvatar"/>
+    </div>
+  </header>
+
+  <div class="profile-container">
+    <h1>👤 Мій профіль</h1>
+    <div class="profile-card">
+      <img src="pictures/photo-user.png" alt="Аватар" class="avatar" id="avatarPreview" />
+      <div class="profile-info">
+        <form id="profileForm">
+          <label>Ім'я:<br><input type="text" name="name" value="Майк Вазовський" required></label><br>
+          <label>Email:<br><input disabled type="email" name="email" value="mike@monstersinc.com" required></label><br>
+          <label>Посада:<br><input type="text" name="role" value="Страхопрактикант"></label><br>
+          <label>Рівень жаху (%):<br><input type="number" name="scare" value="87" min="0" max="100"></label><br><br>
+
+          <label>Завантажити новий аватар:<br>
+            <input type="file" id="avatarInput" accept="image/*">
+          </label><br><br>
+
+          <button type="submit">💾 Зберегти</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById('profileForm');
+
+      const user = JSON.parse(localStorage.getItem("user"))
+      const avatar = document.getElementById('avatarPreview')
+      const avatarImg = document.getElementById('userAvatar')
+
+
+      if (user) {
+        form.name.value = user.name || '';
+        form.email.value = user.email || '';
+        form.role.value = user.role || '';
+        form.scare.value = user.scare || '';
+
+        if (user.avatar) {
+          avatar.src = user.avatar;
+          avatarImg.src = user.avatar;
+        }
+      }
+    })
+
+    document.getElementById("profileForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+
+      let obj = {
+        'name': form.name.value,
+        'email': form.email.value,
+        'role': form.role.value,
+        'scare': form.scare.value,
+      }
+
+
+      // Добавляем файл, если выбран
+      const avatarFile = document.getElementById('avatarInput').files[0];
+
+      if (avatarFile) {
+        const toBase64 = file => new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file); // Читаем файл как base64 строку
+          reader.onload = () => resolve(reader.result); // Результат в виде строки
+          reader.onerror = error => reject(error);
+        });
+
+        const base64String = await toBase64(avatarFile);
+        obj.avatar = base64String; // добавляем в объект
+      }
+
+      localStorage.setItem("user", JSON.stringify(obj))
+
+      await fetch("http://localhost:4252/update_profile", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+      })
+    });
+
+    document.getElementById("avatarInput").addEventListener("change", function (event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (e) => document.getElementById("avatarPreview").src = e.target.result;
+      if (file) reader.readAsDataURL(file);
+    });
+  </script>
+
+</body>
+
+</html>

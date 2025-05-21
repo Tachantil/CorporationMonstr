@@ -4,12 +4,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Зв’язок — Корпорація Монстрів</title>
+  <title>Товари — Корпорація Монстрів</title>
   <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="products.css" />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Inter:wght@700&display=swap" rel="stylesheet">
-  <script defer src="contact.js"></script>
 </head>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const avatar = document.getElementById("userAvatar");
+    const dropdown = document.getElementById("userDropdown");
+
+    if (avatar && dropdown) {
+      dropdown.classList.remove("active");
+
+      avatar.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle("active");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target) && e.target !== avatar) {
+          dropdown.classList.remove("active");
+        }
+      });
+    }
+  });
+</script>
 
 <body>
 
@@ -53,34 +73,38 @@
     <a href="../Contact/contact.html">Зв’язок</a>
   </nav>
 
+  <div class="products-container">
+    <h1>🛍️ Наші товари</h1>
+    <div class="products-grid">
 
-  <div class="contact-content">
-    <h1>📞 Зв'яжись з нами (якщо наважишся...)</h1>
-    <p class="intro">
-      У тебе є питання, пропозиції чи ідеї настільки моторшно крутезні, що їх просто гріх не обговорити?<br>
-      Чи, може, ти загубив свій слизовий пакетик у нас на складі?..<br>
-      Не бійся (ну, або бійся трохи) — ми завжди на зв’язку!
-    </p>
+      <div class="product-card">
+        <img src="../pictures/SlimeCleanerPro.png" alt="Слизозбірник PRO+">
+        <h2>Слизозбірник PRO+</h2>
+        <p>Ідеальний для прибирання після жахів. 3 режими всмоктування.</p>
+        <button>Купити</button>
+      </div>
 
-    <div class="contacts">
-      <h2 class="section-title">✴️ Наші контакти:</h2>
+      <div class="product-card">
+        <img src="../pictures/SilenceClaws.png" alt="Антишумові капці">
+        <h2>Антишумові капці «Тихі Кігті»</h2>
+        <p>Лазь як тінь! Безшумність навіть на скрипучих підлогах.</p>
+        <button>Купити</button>
+      </div>
 
-      <p>📧 <strong>Електронна пошта</strong> (для офіційних страшилок):<br>
-        hello@monsterscorp.net</p>
+      <div class="product-card">
+        <img src="../pictures/MonsterMixVitamin.png" alt="МонстроМікс">
+        <h2>МонстроМікс</h2>
+        <p>Вітаміни для зросту рогів. Смак малиново-болотяний.</p>
+        <button>Купити</button>
+      </div>
 
-      <p>📞 <strong>Телефон</strong> (дзвони після опівночі для найкращого ефекту):<br>
-        +666 13 13 666</p>
+      <div class="product-card">
+        <img src="../pictures/PocketRoar.png" alt="Карманний лякач">
+        <h2>Карманний лякач</h2>
+        <p>Мініатюрний пристрій для екстреного “БУ!”. Працює на батарейках страху.</p>
+        <button>Купити</button>
+      </div>
 
-      <p>📍 <strong>Адреса головного лігва:</strong><br>
-        Печера №13, Ліс Забутих Вулиць,<br>
-        Монстроград, 99999</p>
-
-      <p>📦 <strong>Пошта для пересилки зілля, листів і плюшевих павуків:</strong><br>
-        Відділення 7, Скринька "ЖАХ", Підземна пошта №42</p>
-    </div>
-
-    <div class="note">
-      🧘‍♂️ Пам’ятай: ми відповідаємо швидко, якщо ти залишаєш повідомлення з душею... буквально.
     </div>
   </div>
   <script>

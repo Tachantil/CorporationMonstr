@@ -4,7 +4,8 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '10mb' })); // увеличь лимит
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 const getDb = require("./connection");
 let db;
 
@@ -53,6 +54,15 @@ app.post("/login", async (req, res) => {
         res.status(500).json({ message: 'Помилка на сервері' });
     }
 });
+
+app.post("/update_profile", async (req, res) => {
+    const body = req.body;
+    console.log(body)
+
+    const user = await db.collection("Users").updateOne({ email: body.email }, { $set: { name: body.name, role: body.role, scare: body.scare, avatar: body.avatar } });
+
+    res.status(200).send("OK")
+})
 
 app.listen(process.env.PORT, async () => {
     console.log("Сервер запущено на порту", process.env.PORT);

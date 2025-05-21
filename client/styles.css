@@ -227,3 +227,49 @@ body {
   display: flex;
 }
 /*POPUP*/
+
+.product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      display: none;
+      z-index: 1001;
+      min-width: 180px;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .dropdown-menu.active {
+      display: flex;
+    }
+
+    .dropdown-menu button {
+      background: #0077c8;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .dropdown-menu button:hover {
+      background: #005fa3;
+    }
+
+    .dropdown-menu hr {
+      margin: 8px 0;
+      border: 0;
+      border-top: 1px solid #ccc;
+    }

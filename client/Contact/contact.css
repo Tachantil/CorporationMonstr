@@ -13,6 +13,12 @@ body {
     align-items: center;
     border-bottom: 1px solid #b8d8f8;
   }
+    .site-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #0077c8;
+}
   
 .logo {
   font-family: 'Baloo 2', cursive;

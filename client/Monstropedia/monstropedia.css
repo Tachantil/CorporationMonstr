@@ -5,6 +5,7 @@ body {
     color: #222;
   }
   
+ 
   header {
     background-color: #e0efff;
     padding: 10px 20px;
@@ -26,11 +27,15 @@ body {
   text-decoration: none;
   margin-left: 0;
 }
-
-   .logo img {
+    .site-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #0077c8;
+}
+  .logo img {
     height: 45px;
   }
-  
   .user-profile input[type="text"] {
     padding: 6px 10px;
     border-radius: 15px;

@@ -1,0 +1,64 @@
+.profile-container {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  font-family: 'Baloo 2', cursive;
+}
+
+.profile-card {
+  display: flex;
+  gap: 20px;
+  background-color: #e0f4ff;
+  padding: 20px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #0077c8;
+}
+
+.profile-info {
+  text-align: left;
+  max-width: 400px;
+  width: 100%;
+}
+
+.profile-info form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.profile-info form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.profile-info form button {
+  background: #0077c8;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.profile-info form button:hover {
+  background: #005fa3;
+}
