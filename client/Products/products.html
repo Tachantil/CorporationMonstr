@@ -9,69 +9,49 @@
   <link rel="stylesheet" href="products.css" />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Inter:wght@700&display=swap" rel="stylesheet">
 </head>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const avatar = document.getElementById("userAvatar");
-    const dropdown = document.getElementById("userDropdown");
-
-    if (avatar && dropdown) {
-      dropdown.classList.remove("active");
-
-      avatar.addEventListener("click", (e) => {
-        e.stopPropagation();
-        dropdown.classList.toggle("active");
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!dropdown.contains(e.target) && e.target !== avatar) {
-          dropdown.classList.remove("active");
-        }
-      });
-    }
-  });
-</script>
 
 <body>
 
-  <header>
-    <a href="../index.html" class="logo">
-      <img src="../pictures/лого.png" alt="Корпорація монстрів" />
-      <span class="site-title">Корпорація монстрів</span>
-    </a>
+ <header>
+        <a href="../index.html" class="logo">
+            <img src="../pictures/лого.png" alt="Корпорація монстрів" />
+            <span class="site-title">Корпорація монстрів</span>
+        </a>
 
-    <div class="user-profile">
-      <input type="text" placeholder="🔍 Пошук..." />
-      <img src="../pictures/photo-user.png" alt="User" id="userAvatar" />
-      <div class="dropdown-menu" id="userDropdown">
-        <button onclick="location.href='../profile.html'">🧑‍💼 Профіль</button>
-        <button onclick="alert('Вихід із системи')">🚪 Вийти</button>
-        <hr />
-        <button onclick="openPopup()">🔐 Увійти / Зареєструватись</button>
-      </div>
+
+        <div class="user-profile">
+            <input type="text" placeholder="🔍 Пошук..." />
+            <img src="../pictures/photo-user.png" alt="User" id="userAvatar" />
+            <div class="dropdown-menu" id="userDropdown">
+                <button onclick="location.href='profile.html'">🧑‍💼 Профіль</button>
+                <button onclick="alert('Вихід із системи')">🚪 Вийти</button>
+                <hr />
+                <button onclick="openPopup()">🔐 Увійти / Зареєструватись</button>
+            </div>
+        </div>
+
+        <div id="popupOverlay" class="overlay"></div>
+        </div>
+    </header>
+    <div class="marquee">
+        <p>Тут може бути ваша реклама. Тут може бути ваша реклама. Тут може бути ваша реклама...</p>
     </div>
 
-    <div id="popupOverlay" class="overlay"></div>
+    <div class="products-row">
+        <span>Товари місяця:</span>
+        <a href="slimecolector.html">Слизозбірник PRO+</a>
+        <a href="silenceclaws.html">Антишумові капці «Тихі Кігті»</a>
+        <a href="monstermix.html">МонстроМікс: Вітаміни для зросту рогів</a>
     </div>
-  </header>
-  <div class="marquee">
-    <p>Тут може бути ваша реклама. Тут може бути ваша реклама. Тут може бути ваша реклама...</p>
-  </div>
 
-  <div class="products-row">
-    <span>Товари місяця:</span>
-    <a href="#">Слизозбірник PRO+</a>
-    <a href="#">Антишумові капці «Тихі Кігті»</a>
-    <a href="#">МонстроМікс: Вітаміни для зросту рогів</a>
-    <a href="#">→</a>
-  </div>
+    <nav class="topnav">
+        <a href="../Monstropedia/monstropedia.html">Монстропедія</a>
+        <a href="../Job/JobApplication.html">Працевлаштування</a>
+        <a href="../Products/products.html">Товари</a>
+        <a href="../Ivent/monstropodii.html">Події</a>
+        <a href="../Contact/contact.html">Зв’язок</a>
+    </nav>
 
-  <nav class="topnav">
-    <a href="../Monstropedia/monstropedia.html">Монстропедія</a>
-    <a href="../Job/JobApplication.html">Працевлаштування</a>
-    <a href="../Products/products.html">Товари</a>
-    <a href="../Ivent/monstropodii.html">Події</a>
-    <a href="../Contact/contact.html">Зв’язок</a>
-  </nav>
 
   <div class="products-container">
     <h1>🛍️ Наші товари</h1>
@@ -81,33 +61,35 @@
         <img src="../pictures/SlimeCleanerPro.png" alt="Слизозбірник PRO+">
         <h2>Слизозбірник PRO+</h2>
         <p>Ідеальний для прибирання після жахів. 3 режими всмоктування.</p>
-        <button>Купити</button>
+        <a href="slimecolector.html" class="buy-link"><button>Купити</button></a>
       </div>
 
       <div class="product-card">
         <img src="../pictures/SilenceClaws.png" alt="Антишумові капці">
         <h2>Антишумові капці «Тихі Кігті»</h2>
         <p>Лазь як тінь! Безшумність навіть на скрипучих підлогах.</p>
-        <button>Купити</button>
+        <a href="silenceclaws.html" class="buy-link"><button>Купити</button></a>
       </div>
 
       <div class="product-card">
         <img src="../pictures/MonsterMixVitamin.png" alt="МонстроМікс">
         <h2>МонстроМікс</h2>
         <p>Вітаміни для зросту рогів. Смак малиново-болотяний.</p>
-        <button>Купити</button>
+        <a href="monstermix.html" class="buy-link"><button>Купити</button></a>
       </div>
 
       <div class="product-card">
         <img src="../pictures/PocketRoar.png" alt="Карманний лякач">
         <h2>Карманний лякач</h2>
         <p>Мініатюрний пристрій для екстреного “БУ!”. Працює на батарейках страху.</p>
-        <button>Купити</button>
+        <a href="pocketscream.html" class="buy-link"><button>Купити</button></a>
       </div>
 
     </div>
   </div>
-  <script>
+    <script defer src="../script.js"></script>
+    <script defer src="../Login/popup.js"></script>
+<script>
     document.addEventListener("DOMContentLoaded", () => {
       const user = JSON.parse(localStorage.getItem("user"))
       const avatar = document.getElementById('userAvatar')

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Антишумові капці «Тихі Кігті» — Корпорація Монстрів</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="product.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Inter:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .product-page {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      font-family: 'Baloo 2', cursive;
+    }
+
+    .product-page h1 {
+      font-size: 32px;
+      color: #0077c8;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .product-detail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      background-color: #e0f4ff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .product-detail img {
+      width:350px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      max-width: 500px;
+    }
+
+    .product-info p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .product-info ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .product-info li {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .buy-button {
+      background-color: #0077c8;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .buy-button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+  <script>
+    function handleBuyClick() {
+      alert("З вами зв'яжуться для уточнення інформації щодо придбання");
+    }
+  </script>
+</head>
+<body>
+
+    <header>
+        <a href="../index.html" class="logo">
+            <img src="../pictures/лого.png" alt="Корпорація монстрів" />
+            <span class="site-title">Корпорація монстрів</span>
+        </a>
+
+
+        <div class="user-profile">
+            <input type="text" placeholder="🔍 Пошук..." />
+            <img src="../pictures/photo-user.png" alt="User" id="userAvatar" />
+            <div class="dropdown-menu" id="userDropdown">
+                <button onclick="location.href='profile.html'">🧑‍💼 Профіль</button>
+                <button onclick="alert('Вихід із системи')">🚪 Вийти</button>
+                <hr />
+                <button onclick="openPopup()">🔐 Увійти / Зареєструватись</button>
+            </div>
+        </div>
+
+        <div id="popupOverlay" class="overlay"></div>
+        </div>
+    </header>
+    <div class="marquee">
+        <p>Тут може бути ваша реклама. Тут може бути ваша реклама. Тут може бути ваша реклама...</p>
+    </div>
+
+    <div class="products-row">
+        <span>Товари місяця:</span>
+        <a href="slimecolector.html">Слизозбірник PRO+</a>
+        <a href="silenceclaws.html">Антишумові капці «Тихі Кігті»</a>
+        <a href="monstermix.html">МонстроМікс: Вітаміни для зросту рогів</a>
+    </div>
+
+    <nav class="topnav">
+        <a href="../Monstropedia/monstropedia.html">Монстропедія</a>
+        <a href="../Job/JobApplication.html">Працевлаштування</a>
+        <a href="../Products/products.html">Товари</a>
+        <a href="../Ivent/monstropodii.html">Події</a>
+        <a href="../Contact/contact.html">Зв’язок</a>
+    </nav>
+
+  <main class="product-page">
+    <h1>🥿 Антишумові капці «Тихі Кігті»</h1>
+    <div class="product-detail">
+      <img src="../pictures/SilenceClaws.png" alt="Антишумові капці Тихі Кігті">
+      <div class="product-info">
+        <p>
+          Спеціально розроблені для монстрів, яким потрібно непомітно пробиратись темними коридорами. Капці «Тихі Кігті» оснащені поглиначами шуму,
+          гнучкою підошвою з чутливого до страху матеріалу та мають класичний дизайн з елементами жаху.
+        </p>
+        <ul>
+          <li>✅ Матеріал: страхопоглинальний неопух</li>
+          <li>✅ Підошва: безшумна з рельєфом лапи</li>
+          <li>✅ Доступні розміри: з 24 по 46</li>
+          <li>✅ Упаковані у нічну коробку з ілюмінацією</li>
+        </ul>
+        <p class="price">Ціна: 899₴</p>
+        <button class="buy-button" onclick="handleBuyClick()">Купити</button>
+      </div>
+    </div>
+  </main>
+    <script defer src="../script.js"></script>
+    <script defer src="../Login/popup.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = JSON.parse(localStorage.getItem("user"))
+      const avatar = document.getElementById('userAvatar')
+      if (user?.avatar) {
+        avatar.src = user.avatar;
+      }
+    })
+  </script>
+</body>
+</html>

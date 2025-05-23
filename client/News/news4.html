@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Як змінились стандарти монстрозагроз — Новини Корпорації Монстрів</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Baloo 2', cursive;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+    }
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      gap: 30px;
+    }
+    .main-content {
+      flex: 3;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+    .main-content h1 {
+      font-size: 28px;
+      color: #0077c8;
+      margin-bottom: 20px;
+    }
+    .main-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .main-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .side-links {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .side-links a {
+      display: flex;
+      align-items: center;
+      background: #e0f4ff;
+      border-radius: 8px;
+      padding: 8px;
+      text-decoration: none;
+      color: #004080;
+      font-size: 14px;
+      gap: 10px;
+      transition: background 0.3s ease;
+    }
+    .side-links a:hover {
+      background: #c2e4f8;
+    }
+    .side-links img {
+      width: 80px;
+      height: 60px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+    .side-links span {
+      display: inline-block;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+<body>
+  <header>
+        <a href="../index.html" class="logo">
+            <img src="../pictures/лого.png" alt="Корпорація монстрів" />
+            <span class="site-title">Корпорація монстрів</span>
+        </a>
+
+
+        <div class="user-profile">
+            <input type="text" placeholder="🔍 Пошук..." />
+            <img src="../pictures/photo-user.png" alt="User" id="userAvatar" />
+            <div class="dropdown-menu" id="userDropdown">
+                <button onclick="location.href='profile.html'">🧑‍💼 Профіль</button>
+                <button onclick="alert('Вихід із системи')">🚪 Вийти</button>
+                <hr />
+                <button onclick="openPopup()">🔐 Увійти / Зареєструватись</button>
+            </div>
+        </div>
+
+        <div id="popupOverlay" class="overlay"></div>
+        </div>
+    </header>
+    <div class="marquee">
+        <p>Тут може бути ваша реклама. Тут може бути ваша реклама. Тут може бути ваша реклама...</p>
+    </div>
+
+    <div class="products-row">
+        <span>Товари місяця:</span>
+        <a href="../Products/slimecolector.html">Слизозбірник PRO+</a>
+        <a href="../Products/silenceclaws.html">Антишумові капці «Тихі Кігті»</a>
+        <a href="../Products/monstermix.html">МонстроМікс: Вітаміни для зросту рогів</a>
+    </div>
+
+    <nav class="topnav">
+        <a href="../Monstropedia/monstropedia.html">Монстропедія</a>
+        <a href="../Job/JobApplication.html">Працевлаштування</a>
+        <a href="../Products/products.html">Товари</a>
+        <a href="../Ivent/monstropodii.html">Події</a>
+        <a href="../Contact/contact.html">Зв’язок</a>
+    </nav>
+
+  <div class="container">
+    <div class="main-content">
+      <h1>Як змінились стандарти монстрозагроз за останні роки?</h1>
+      <img src="../pictures/Аналітика.jpeg" alt="Аналітика монстрозагроз">
+      <p>
+        Згідно з останнім дослідженням Наукового відділу Жахів, за останні три роки значно зросли вимоги до ефективності та етичності монстрозагроз.
+        Це викликано еволюцією дитячої свідомості та новими трендами на страх у віртуальному середовищі.
+      </p>
+      <p>
+        Аналітики відзначають, що сучасний дитячий мозок краще розпізнає шаблони страху, тому ефективність класичних «Бу!» знизилася.
+        Натомість популярності набули технології інтерактивного жахання, візуальні голографічні ефекти та емоційно-обґрунтовані сценарії лякання.
+      </p>
+      <p>
+        Зараз готується оновлення протоколу SCAREMIX, який включатиме гібридну модель: традиційний монстр + елемент несподіванки зі світу відеоігор.
+        Усі монстри мають пройти сертифікацію до кінця цього року.
+      </p>
+    </div>
+    <div class="side-links">
+      <a href="news1.html">
+        <img src="../pictures/Топ 5.jpeg" alt="ТОП-5 стратегій">
+        <span><strong>ТОП-5 стратегій</strong> лякання у школах</span>
+      </a>
+      <a href="news2.html">
+        <img src="../pictures/Монстр стиль.jpeg" alt="Класифікатор монстрів">
+        <span><strong>Який монстр ти за стилем життя?</strong> Дізнайся!</span>
+      </a>
+      <a href="news3.html">
+        <img src="../pictures/Правила.jpeg" alt="Нові правила">
+        <span><strong>Нові правила</strong> для офісного «бу!»</span>
+      </a>
+      <a href="news5.html">
+        <img src="../pictures/Поради 10шт.jpeg" alt="Поради стажеру">
+        <span><strong>10 порад для стажера:</strong> як не втратити голову?</span>
+      </a>
+      <a href="news6.html">
+        <img src="../pictures/Освіта.jpeg" alt="Освіта монстрів">
+        <span><strong>Чи потрібна монстру освіта?</strong> Аналітика від керівництва</span>
+      </a>
+    </div>
+  </div>
+  <script defer src="../script.js"></script>
+    <script defer src="../Login/popup.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = JSON.parse(localStorage.getItem("user"))
+      const avatar = document.getElementById('userAvatar')
+      if (user?.avatar) {
+        avatar.src = user.avatar;
+      }
+    })
+  </script>
+</body>
+</html>
